@@ -1,0 +1,97 @@
+﻿<Window x:Class="To_Do.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:To_Do"
+        mc:Ignorable="d"
+        Title="To-Do" Background="AliceBlue" Height="450" Width="800" Loaded="Window_Loaded"
+        x:Name="_window" ResizeMode="NoResize" Activated="_window_Activated">
+    <Window.Resources>
+        <CollectionViewSource x:Key="taskViewSource"
+                              Source="{Binding Task}"/>
+        <CollectionViewSource x:Key="taskViewSourceWork"/>
+        <CollectionViewSource x:Key="taskViewSourceHome"/>
+        <CollectionViewSource x:Key="taskViewSourceSchool"/>
+        <CollectionViewSource x:Key="taskViewSourceShopping"/>
+        <CollectionViewSource x:Key="taskViewSourceOther"/>
+    </Window.Resources>
+    <Grid>
+        <TabControl Name="tabCtrl" Margin="0,40,0,0">
+            <TabItem Header="All">
+                <Grid>
+                    <DataGrid CanUserAddRows="False" Name="dataGridAll" ItemsSource="{Binding Source={StaticResource taskViewSource}}" AutoGenerateColumns="False" RowBackground="AliceBlue" HorizontalGridLinesBrush="#FFACACAC" VerticalGridLinesBrush="#FFACACAC">
+                        <DataGrid.Columns>
+                            <DataGridCheckBoxColumn Binding="{Binding taskChecked}" Header="Completed" CanUserResize="False" CanUserSort="False" CanUserReorder="False" Width="70"/>
+                            <DataGridTextColumn Binding="{Binding taskName}" CanUserResize="False" CanUserSort="False" CanUserReorder="False" Header="Task" IsReadOnly="True" Width="230"/>
+                            <DataGridTextColumn Binding="{Binding taskCategory}" CanUserResize="False" CanUserSort="False" CanUserReorder="False" Header="Category" IsReadOnly="True" Width="230"/>
+                            <DataGridTextColumn Binding="{Binding taskDescription}" CanUserResize="False" CanUserSort="False" CanUserReorder="False" Header="Description" IsReadOnly="True" Width="240"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Work">
+                <Grid>
+                    <DataGrid CanUserAddRows="False" Name="dataGridWork" ItemsSource="{Binding Source={StaticResource taskViewSourceWork}}" AutoGenerateColumns="False" RowBackground="AliceBlue" HorizontalGridLinesBrush="#FFACACAC" VerticalGridLinesBrush="#FFACACAC">
+                        <DataGrid.Columns>
+                            <DataGridCheckBoxColumn Binding="{Binding taskChecked}" Header="Completed" CanUserResize="False" CanUserSort="False" CanUserReorder="False" Width="70"/>
+                            <DataGridTextColumn Binding="{Binding taskName}" CanUserResize="False" CanUserSort="False" CanUserReorder="False" Header="Task" IsReadOnly="True" Width="230"/>
+                            <DataGridTextColumn Binding="{Binding taskCategory}" CanUserResize="False" CanUserSort="False" CanUserReorder="False" Header="Category" IsReadOnly="True" Width="230"/>
+                            <DataGridTextColumn Binding="{Binding taskDescription}" CanUserResize="False" CanUserSort="False" CanUserReorder="False" Header="Description" IsReadOnly="True" Width="240"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Home">
+                <Grid>
+                    <DataGrid CanUserAddRows="False" Name="dataGridHome" ItemsSource="{Binding Source={StaticResource taskViewSourceHome}}" AutoGenerateColumns="False" RowBackground="AliceBlue" HorizontalGridLinesBrush="#FFACACAC" VerticalGridLinesBrush="#FFACACAC">
+                        <DataGrid.Columns>
+                            <DataGridCheckBoxColumn Binding="{Binding taskChecked}" Header="Completed" CanUserResize="False" CanUserSort="False" CanUserReorder="False" Width="70"/>
+                            <DataGridTextColumn Binding="{Binding taskName}" CanUserResize="False" CanUserSort="False" CanUserReorder="False" Header="Task" IsReadOnly="True" Width="230"/>
+                            <DataGridTextColumn Binding="{Binding taskCategory}" CanUserResize="False" CanUserSort="False" CanUserReorder="False" Header="Category" IsReadOnly="True" Width="230"/>
+                            <DataGridTextColumn Binding="{Binding taskDescription}" CanUserResize="False" CanUserSort="False" CanUserReorder="False" Header="Description" IsReadOnly="True" Width="240"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+            </TabItem>
+            <TabItem Header="School">
+                <Grid>
+                    <DataGrid CanUserAddRows="False" Name="dataGridSchool" ItemsSource="{Binding Source={StaticResource taskViewSourceSchool}}" AutoGenerateColumns="False" RowBackground="AliceBlue" HorizontalGridLinesBrush="#FFACACAC" VerticalGridLinesBrush="#FFACACAC">
+                        <DataGrid.Columns>
+                            <DataGridCheckBoxColumn Binding="{Binding taskChecked}" Header="Completed" CanUserResize="False" CanUserSort="False" CanUserReorder="False" Width="70"/>
+                            <DataGridTextColumn Binding="{Binding taskName}" CanUserResize="False" CanUserSort="False" CanUserReorder="False" Header="Task" IsReadOnly="True" Width="230"/>
+                            <DataGridTextColumn Binding="{Binding taskCategory}" CanUserResize="False" CanUserSort="False" CanUserReorder="False" Header="Category" IsReadOnly="True" Width="230"/>
+                            <DataGridTextColumn Binding="{Binding taskDescription}" CanUserResize="False" CanUserSort="False" CanUserReorder="False" Header="Description" IsReadOnly="True" Width="240"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Shopping">
+                <Grid>
+                    <DataGrid CanUserAddRows="False" Name="dataGridShopping" ItemsSource="{Binding Source={StaticResource taskViewSourceShopping}}" AutoGenerateColumns="False" RowBackground="AliceBlue" HorizontalGridLinesBrush="#FFACACAC" VerticalGridLinesBrush="#FFACACAC">
+                        <DataGrid.Columns>
+                            <DataGridCheckBoxColumn Binding="{Binding taskChecked}" Header="Completed" CanUserResize="False" CanUserSort="False" CanUserReorder="False" Width="70"/>
+                            <DataGridTextColumn Binding="{Binding taskName}" CanUserResize="False" CanUserSort="False" CanUserReorder="False" Header="Task" IsReadOnly="True" Width="230"/>
+                            <DataGridTextColumn Binding="{Binding taskCategory}" CanUserResize="False" CanUserSort="False" CanUserReorder="False" Header="Category" IsReadOnly="True" Width="230"/>
+                            <DataGridTextColumn Binding="{Binding taskDescription}" CanUserResize="False" CanUserSort="False" CanUserReorder="False" Header="Description" IsReadOnly="True" Width="240"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Other">
+                <Grid>
+                    <DataGrid CanUserAddRows="False" Name="dataGridOther" ItemsSource="{Binding Source={StaticResource taskViewSourceOther}}" AutoGenerateColumns="False" RowBackground="AliceBlue" HorizontalGridLinesBrush="#FFACACAC" VerticalGridLinesBrush="#FFACACAC">
+                        <DataGrid.Columns>
+                            <DataGridCheckBoxColumn Binding="{Binding taskChecked}" Header="Completed" CanUserResize="False" CanUserSort="False" CanUserReorder="False" Width="70"/>
+                            <DataGridTextColumn Binding="{Binding taskName}" CanUserResize="False" CanUserSort="False" CanUserReorder="False" Header="Task" IsReadOnly="True" Width="230"/>
+                            <DataGridTextColumn Binding="{Binding taskCategory}" CanUserResize="False" CanUserSort="False" CanUserReorder="False" Header="Category" IsReadOnly="True" Width="230"/>
+                            <DataGridTextColumn Binding="{Binding taskDescription}" CanUserResize="False" CanUserSort="False" CanUserReorder="False" Header="Description" IsReadOnly="True" Width="240"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+            </TabItem>
+        </TabControl>
+        <Button x:Name="btnAdd" Content="Add task" HorizontalAlignment="Left" Margin="644,15,0,0" VerticalAlignment="Top" Click="btnAdd_Click"/>
+        <Button x:Name="btnRemove" Content="Remove task" HorizontalAlignment="Left" Margin="714,15,0,0" VerticalAlignment="Top" Click="btnRemove_Click"/>
+    </Grid>
+</Window>
