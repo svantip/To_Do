@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:To_Do"
         mc:Ignorable="d"
         Title="To-Do" Background="AliceBlue" Height="450" Width="800" Loaded="Window_Loaded"
-        x:Name="_window" ResizeMode="NoResize" Activated="_window_Activated" Icon="/favicon.ico">
+        x:Name="_window" ResizeMode="NoResize" Activated="_window_Activated" Icon="/favicon.ico" Closing="_window_Closing">
     <Window.Resources>
         <CollectionViewSource x:Key="taskViewSource"
                               Source="{Binding Task}"/>
@@ -33,7 +33,7 @@
                             </Style>
                         </DataGrid.ColumnHeaderStyle>
                         <DataGrid.Columns>
-                            <DataGridCheckBoxColumn Binding="{Binding taskChecked}" Header="Completed" CanUserResize="False" CanUserSort="False" CanUserReorder="False" Width="70"/>
+                            <DataGridCheckBoxColumn Binding="{Binding taskChecked, UpdateSourceTrigger=PropertyChanged}" Header="Completed" CanUserResize="False" CanUserSort="False" CanUserReorder="False" Width="70"/>
                             <DataGridTextColumn Binding="{Binding taskName}" CanUserResize="False" CanUserSort="False" CanUserReorder="False" Header="Task" IsReadOnly="True" Width="230"/>
                             <DataGridTextColumn Binding="{Binding taskCategory}" CanUserResize="False" CanUserSort="False" CanUserReorder="False" Header="Category" IsReadOnly="True" Width="230"/>
                             <DataGridTextColumn Binding="{Binding taskDescription}" CanUserResize="False" CanUserSort="False" CanUserReorder="False" Header="Description" IsReadOnly="True" Width="240"/>

@@ -36,7 +36,6 @@ namespace To_Do
             taskViewSourceSchool = (CollectionViewSource)FindResource(nameof(taskViewSourceSchool));
             taskViewSourceShopping = (CollectionViewSource)FindResource(nameof(taskViewSourceShopping));
             taskViewSourceOther = (CollectionViewSource)FindResource(nameof(taskViewSourceOther));
-            
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -85,6 +84,11 @@ namespace To_Do
         private void _window_Activated(object sender, EventArgs e)
         {
             _context.Task.Load();
+        }
+
+        private void _window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            _context.SaveChanges();
         }
     }
 }
