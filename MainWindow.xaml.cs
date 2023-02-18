@@ -43,6 +43,11 @@ namespace To_Do
             _context.Database.EnsureCreated();
             _context.Task.Load();
             taskViewSource.Source = _context.Task.Local.ToObservableCollection();
+            dataGridHome.Items.Clear();
+            dataGridOther.Items.Clear();
+            dataGridSchool.Items.Clear();
+            dataGridShopping.Items.Clear();
+            dataGridWork.Items.Clear();
             foreach (var item in _context.Task)
             {
                 if(item.taskCategory == "Work")
@@ -79,11 +84,67 @@ namespace To_Do
             Task task = (Task)dataGridAll.SelectedItem;
             _context.Remove(task);
             _context.SaveChanges();
+            dataGridHome.Items.Clear();
+            dataGridOther.Items.Clear();
+            dataGridSchool.Items.Clear();
+            dataGridShopping.Items.Clear();
+            dataGridWork.Items.Clear();
+            foreach (var item in _context.Task)
+            {
+                if (item.taskCategory == "Work")
+                {
+                    dataGridWork.Items.Add(item);
+                }
+                else if (item.taskCategory == "Home")
+                {
+                    dataGridHome.Items.Add(item);
+                }
+                else if (item.taskCategory == "School")
+                {
+                    dataGridSchool.Items.Add(item);
+                }
+                else if (item.taskCategory == "Shopping")
+                {
+                    dataGridShopping.Items.Add(item);
+                }
+                if (item.taskCategory != "Home" && item.taskCategory != "Work" && item.taskCategory != "School" && item.taskCategory != "Shopping")
+                {
+                    dataGridOther.Items.Add(item);
+                }
+            }
         }
 
         private void _window_Activated(object sender, EventArgs e)
         {
             _context.Task.Load();
+            dataGridHome.Items.Clear();
+            dataGridOther.Items.Clear();
+            dataGridSchool.Items.Clear();
+            dataGridShopping.Items.Clear();
+            dataGridWork.Items.Clear();
+            foreach (var item in _context.Task)
+            {
+                if (item.taskCategory == "Work")
+                {
+                    dataGridWork.Items.Add(item);
+                }
+                else if (item.taskCategory == "Home")
+                {
+                    dataGridHome.Items.Add(item);
+                }
+                else if (item.taskCategory == "School")
+                {
+                    dataGridSchool.Items.Add(item);
+                }
+                else if (item.taskCategory == "Shopping")
+                {
+                    dataGridShopping.Items.Add(item);
+                }
+                if (item.taskCategory != "Home" && item.taskCategory != "Work" && item.taskCategory != "School" && item.taskCategory != "Shopping")
+                {
+                    dataGridOther.Items.Add(item);
+                }
+            }
         }
 
         private void _window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
