@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:To_Do"
         mc:Ignorable="d"
-        Title="Add task" Height="330" Width="160">
+        Title="Add task" Height="330" Width="160" Icon="/favicon.ico" Background="AliceBlue" ResizeMode="NoResize">
     <Window.Resources>
         <CollectionViewSource x:Key="taskViewSource"
                               Source="{Binding Task}"/>

@@ -36,6 +36,7 @@ namespace To_Do
             taskViewSourceSchool = (CollectionViewSource)FindResource(nameof(taskViewSourceSchool));
             taskViewSourceShopping = (CollectionViewSource)FindResource(nameof(taskViewSourceShopping));
             taskViewSourceOther = (CollectionViewSource)FindResource(nameof(taskViewSourceOther));
+            
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -61,7 +62,7 @@ namespace To_Do
                 {
                     dataGridShopping.Items.Add(item);
                 }
-                else
+                if(item.taskCategory != "Home" && item.taskCategory != "Work" && item.taskCategory != "School" && item.taskCategory != "Shopping")
                 {
                     dataGridOther.Items.Add(item);
                 }
@@ -72,7 +73,6 @@ namespace To_Do
         {
             Add a = new Add();
             a.ShowDialog();
-            
         }
 
         private void btnRemove_Click(object sender, RoutedEventArgs e)

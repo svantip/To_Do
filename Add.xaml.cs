@@ -61,7 +61,7 @@ namespace To_Do
             else
             {
                 
-                if((chkBoxCostumCategory.IsChecked == true && cmbBoxCategory.Text == "") || (chkBoxCostumCategory.IsChecked == false && txtBoxTaskCategory.Text == ""))
+                if((chkBoxCostumCategory.IsChecked == true && cmbBoxCategory.IsEnabled == false) || (chkBoxCostumCategory.IsChecked == false && cmbBoxCategory.IsEnabled == true))
                 {
                     string taskCategory;
                     string taskName = txtBoxTaskName.Text;

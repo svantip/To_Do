@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:To_Do"
         mc:Ignorable="d"
         Title="To-Do" Background="AliceBlue" Height="450" Width="800" Loaded="Window_Loaded"
-        x:Name="_window" ResizeMode="NoResize" Activated="_window_Activated">
+        x:Name="_window" ResizeMode="NoResize" Activated="_window_Activated" Icon="/favicon.ico">
     <Window.Resources>
         <CollectionViewSource x:Key="taskViewSource"
                               Source="{Binding Task}"/>
@@ -19,8 +19,19 @@
     <Grid>
         <TabControl Name="tabCtrl" Margin="0,40,0,0">
             <TabItem Header="All">
+                <TabItem.Background>
+                    <LinearGradientBrush EndPoint="0,1">
+                        <GradientStop Color="#FFF0F0F0"/>
+                        <GradientStop Color="#FF91CBFD" Offset="1"/>
+                    </LinearGradientBrush>
+                </TabItem.Background>
                 <Grid>
-                    <DataGrid CanUserAddRows="False" Name="dataGridAll" ItemsSource="{Binding Source={StaticResource taskViewSource}}" AutoGenerateColumns="False" RowBackground="AliceBlue" HorizontalGridLinesBrush="#FFACACAC" VerticalGridLinesBrush="#FFACACAC">
+                    <DataGrid CanUserAddRows="False" Name="dataGridAll" ItemsSource="{Binding Source={StaticResource taskViewSource}}" AutoGenerateColumns="False" RowBackground="AliceBlue" HorizontalGridLinesBrush="#FFACACAC" VerticalGridLinesBrush="#FFACACAC" Background="AliceBlue">
+                        <DataGrid.ColumnHeaderStyle>
+                            <Style TargetType="DataGridColumnHeader">
+                                <Setter Property="Background" Value="LightBlue" />
+                            </Style>
+                        </DataGrid.ColumnHeaderStyle>
                         <DataGrid.Columns>
                             <DataGridCheckBoxColumn Binding="{Binding taskChecked}" Header="Completed" CanUserResize="False" CanUserSort="False" CanUserReorder="False" Width="70"/>
                             <DataGridTextColumn Binding="{Binding taskName}" CanUserResize="False" CanUserSort="False" CanUserReorder="False" Header="Task" IsReadOnly="True" Width="230"/>
@@ -31,8 +42,19 @@
                 </Grid>
             </TabItem>
             <TabItem Header="Work">
+                <TabItem.Background>
+                    <LinearGradientBrush EndPoint="0,1">
+                        <GradientStop Color="#FFF0F0F0"/>
+                        <GradientStop Color="#FF91CBFD" Offset="1"/>
+                    </LinearGradientBrush>
+                </TabItem.Background>
                 <Grid>
-                    <DataGrid CanUserAddRows="False" Name="dataGridWork" ItemsSource="{Binding Source={StaticResource taskViewSourceWork}}" AutoGenerateColumns="False" RowBackground="AliceBlue" HorizontalGridLinesBrush="#FFACACAC" VerticalGridLinesBrush="#FFACACAC">
+                    <DataGrid CanUserAddRows="False" Name="dataGridWork" ItemsSource="{Binding Source={StaticResource taskViewSourceWork}}" AutoGenerateColumns="False" RowBackground="AliceBlue" HorizontalGridLinesBrush="#FFACACAC" VerticalGridLinesBrush="#FFACACAC" Background="AliceBlue">
+                        <DataGrid.ColumnHeaderStyle>
+                            <Style TargetType="DataGridColumnHeader">
+                                <Setter Property="Background" Value="LightBlue" />
+                            </Style>
+                        </DataGrid.ColumnHeaderStyle>
                         <DataGrid.Columns>
                             <DataGridCheckBoxColumn Binding="{Binding taskChecked}" Header="Completed" CanUserResize="False" CanUserSort="False" CanUserReorder="False" Width="70"/>
                             <DataGridTextColumn Binding="{Binding taskName}" CanUserResize="False" CanUserSort="False" CanUserReorder="False" Header="Task" IsReadOnly="True" Width="230"/>
@@ -43,8 +65,19 @@
                 </Grid>
             </TabItem>
             <TabItem Header="Home">
+                <TabItem.Background>
+                    <LinearGradientBrush EndPoint="0,1">
+                        <GradientStop Color="#FFF0F0F0"/>
+                        <GradientStop Color="#FF91CBFD" Offset="1"/>
+                    </LinearGradientBrush>
+                </TabItem.Background>
                 <Grid>
-                    <DataGrid CanUserAddRows="False" Name="dataGridHome" ItemsSource="{Binding Source={StaticResource taskViewSourceHome}}" AutoGenerateColumns="False" RowBackground="AliceBlue" HorizontalGridLinesBrush="#FFACACAC" VerticalGridLinesBrush="#FFACACAC">
+                    <DataGrid CanUserAddRows="False" Name="dataGridHome" ItemsSource="{Binding Source={StaticResource taskViewSourceHome}}" AutoGenerateColumns="False" RowBackground="AliceBlue" HorizontalGridLinesBrush="#FFACACAC" VerticalGridLinesBrush="#FFACACAC" Background="AliceBlue">
+                        <DataGrid.ColumnHeaderStyle>
+                            <Style TargetType="DataGridColumnHeader">
+                                <Setter Property="Background" Value="LightBlue" />
+                            </Style>
+                        </DataGrid.ColumnHeaderStyle>
                         <DataGrid.Columns>
                             <DataGridCheckBoxColumn Binding="{Binding taskChecked}" Header="Completed" CanUserResize="False" CanUserSort="False" CanUserReorder="False" Width="70"/>
                             <DataGridTextColumn Binding="{Binding taskName}" CanUserResize="False" CanUserSort="False" CanUserReorder="False" Header="Task" IsReadOnly="True" Width="230"/>
@@ -55,8 +88,19 @@
                 </Grid>
             </TabItem>
             <TabItem Header="School">
+                <TabItem.Background>
+                    <LinearGradientBrush EndPoint="0,1">
+                        <GradientStop Color="#FFF0F0F0"/>
+                        <GradientStop Color="#FF91CBFD" Offset="1"/>
+                    </LinearGradientBrush>
+                </TabItem.Background>
                 <Grid>
-                    <DataGrid CanUserAddRows="False" Name="dataGridSchool" ItemsSource="{Binding Source={StaticResource taskViewSourceSchool}}" AutoGenerateColumns="False" RowBackground="AliceBlue" HorizontalGridLinesBrush="#FFACACAC" VerticalGridLinesBrush="#FFACACAC">
+                    <DataGrid CanUserAddRows="False" Name="dataGridSchool" ItemsSource="{Binding Source={StaticResource taskViewSourceSchool}}" AutoGenerateColumns="False" RowBackground="AliceBlue" HorizontalGridLinesBrush="#FFACACAC" VerticalGridLinesBrush="#FFACACAC" Background="AliceBlue">
+                        <DataGrid.ColumnHeaderStyle>
+                            <Style TargetType="DataGridColumnHeader">
+                                <Setter Property="Background" Value="LightBlue" />
+                            </Style>
+                        </DataGrid.ColumnHeaderStyle>
                         <DataGrid.Columns>
                             <DataGridCheckBoxColumn Binding="{Binding taskChecked}" Header="Completed" CanUserResize="False" CanUserSort="False" CanUserReorder="False" Width="70"/>
                             <DataGridTextColumn Binding="{Binding taskName}" CanUserResize="False" CanUserSort="False" CanUserReorder="False" Header="Task" IsReadOnly="True" Width="230"/>
@@ -67,8 +111,19 @@
                 </Grid>
             </TabItem>
             <TabItem Header="Shopping">
+                <TabItem.Background>
+                    <LinearGradientBrush EndPoint="0,1">
+                        <GradientStop Color="#FFF0F0F0"/>
+                        <GradientStop Color="#FF91CBFD" Offset="1"/>
+                    </LinearGradientBrush>
+                </TabItem.Background>
                 <Grid>
-                    <DataGrid CanUserAddRows="False" Name="dataGridShopping" ItemsSource="{Binding Source={StaticResource taskViewSourceShopping}}" AutoGenerateColumns="False" RowBackground="AliceBlue" HorizontalGridLinesBrush="#FFACACAC" VerticalGridLinesBrush="#FFACACAC">
+                    <DataGrid CanUserAddRows="False" Name="dataGridShopping" ItemsSource="{Binding Source={StaticResource taskViewSourceShopping}}" AutoGenerateColumns="False" RowBackground="AliceBlue" HorizontalGridLinesBrush="#FFACACAC" VerticalGridLinesBrush="#FFACACAC" Background="AliceBlue">
+                        <DataGrid.ColumnHeaderStyle>
+                            <Style TargetType="DataGridColumnHeader">
+                                <Setter Property="Background" Value="LightBlue" />
+                            </Style>
+                        </DataGrid.ColumnHeaderStyle>
                         <DataGrid.Columns>
                             <DataGridCheckBoxColumn Binding="{Binding taskChecked}" Header="Completed" CanUserResize="False" CanUserSort="False" CanUserReorder="False" Width="70"/>
                             <DataGridTextColumn Binding="{Binding taskName}" CanUserResize="False" CanUserSort="False" CanUserReorder="False" Header="Task" IsReadOnly="True" Width="230"/>
@@ -79,8 +134,20 @@
                 </Grid>
             </TabItem>
             <TabItem Header="Other">
+                <TabItem.Background>
+                    <LinearGradientBrush EndPoint="0,1">
+                        <GradientStop Color="#FFF0F0F0"/>
+                        <GradientStop Color="#FF91CBFD" Offset="1"/>
+                    </LinearGradientBrush>
+                </TabItem.Background>
                 <Grid>
-                    <DataGrid CanUserAddRows="False" Name="dataGridOther" ItemsSource="{Binding Source={StaticResource taskViewSourceOther}}" AutoGenerateColumns="False" RowBackground="AliceBlue" HorizontalGridLinesBrush="#FFACACAC" VerticalGridLinesBrush="#FFACACAC">
+                    <DataGrid CanUserAddRows="False" Name="dataGridOther" ItemsSource="{Binding Source={StaticResource taskViewSourceOther}}" AutoGenerateColumns="False" RowBackground="AliceBlue" HorizontalGridLinesBrush="#FFACACAC" VerticalGridLinesBrush="#FFACACAC" Background="AliceBlue">
+                        <DataGrid.ColumnHeaderStyle>
+                            <Style TargetType="DataGridColumnHeader">
+                                <Setter Property="Background" Value="LightBlue" />
+                            </Style>
+
+                        </DataGrid.ColumnHeaderStyle>
                         <DataGrid.Columns>
                             <DataGridCheckBoxColumn Binding="{Binding taskChecked}" Header="Completed" CanUserResize="False" CanUserSort="False" CanUserReorder="False" Width="70"/>
                             <DataGridTextColumn Binding="{Binding taskName}" CanUserResize="False" CanUserSort="False" CanUserReorder="False" Header="Task" IsReadOnly="True" Width="230"/>
@@ -91,7 +158,16 @@
                 </Grid>
             </TabItem>
         </TabControl>
-        <Button x:Name="btnAdd" Content="Add task" HorizontalAlignment="Left" Margin="644,15,0,0" VerticalAlignment="Top" Click="btnAdd_Click"/>
-        <Button x:Name="btnRemove" Content="Remove task" HorizontalAlignment="Left" Margin="714,15,0,0" VerticalAlignment="Top" Click="btnRemove_Click"/>
+        
+        <Button x:Name="btnAdd" Content="" HorizontalAlignment="Left" Margin="585,10,0,0" VerticalAlignment="Top" Click="btnAdd_Click" Width="92" Height="30" BorderBrush="{x:Null}">
+            <Button.Background>
+                <ImageBrush ImageSource="/button_add-new-task.png"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="btnRemove" Content="" HorizontalAlignment="Left" Margin="682,10,0,0" VerticalAlignment="Top" Click="btnRemove_Click" Width="92" Height="30" BorderBrush="{x:Null}">
+            <Button.Background>
+                <ImageBrush ImageSource="/button_remove-task.png"/>
+            </Button.Background>
+        </Button>
     </Grid>
 </Window>
